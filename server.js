@@ -22,6 +22,16 @@ app.get('/', async (req, res) => {
     res.send("Hello World")
 })
 
+app.get('/validatecode/:code', async (req, res) => {
+    const code = req.params.code;
+    if (parseInt(code) === process.env.VALID_CODE_HASH) {
+        res.send(true)
+    }
+    else {
+        res.send(false)
+    }
+})
+
 app.post('/api/multiViews', async (req, res) => {
     const { url, videos } = req.body;
 
