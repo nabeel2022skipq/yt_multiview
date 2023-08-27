@@ -24,7 +24,7 @@ app.get('/', async (req, res) => {
 
 app.get('/validatecode/:code', async (req, res) => {
     const code = req.params.code;
-    if (parseInt(code) === process.env.VALID_CODE_HASH) {
+    if (code === process.env.VALID_CODE_HASH) {
         res.send(true)
     }
     else {
