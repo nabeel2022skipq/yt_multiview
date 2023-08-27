@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 mongoose.connect('mongodb+srv://ytmultiview:DFnHdTnpmKX5BxvA@cluster0.0hprzrn.mongodb.net/YTMultiView?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -8,6 +9,7 @@ mongoose.connect('mongodb+srv://ytmultiview:DFnHdTnpmKX5BxvA@cluster0.0hprzrn.mo
 });
 
 app.use(express.json());
+app.use(cors())
 
 const multiViewSchema = new mongoose.Schema({
     url: String,
